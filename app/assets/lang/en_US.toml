@@ -191,6 +191,8 @@ extractingJava = "Extracting Java"
 javaInstalled = "Java Installed!"
 
 [js.landing.dlAsync]
+loginRequiredTitle = "Login Required"
+loginRequiredText = "You must be logged into a Minecraft account to play. Add an account in Settings > Account."
 loadingServerInfo = "Loading server information.."
 fatalError = "Fatal Error"
 unableToLoadDistributionIndex = "Could not load a copy of the distribution index. See the console (CTRL + Shift + i) for more details."

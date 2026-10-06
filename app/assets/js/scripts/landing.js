@@ -470,6 +470,8 @@ async function dlAsync(login = true) {
     if(login) {
         if(ConfigManager.getSelectedAccount() == null){
             loggerLanding.error('You must be logged into an account.')
+            // Without this the launch area stays frozen on "loading server info" with no explanation.
+            showLaunchFailure(Lang.queryJS('landing.dlAsync.loginRequiredTitle'), Lang.queryJS('landing.dlAsync.loginRequiredText'))
             return
         }
     }

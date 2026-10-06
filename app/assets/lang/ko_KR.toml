@@ -190,6 +190,8 @@ extractingJava = "Java 압축 푸는 중"
 javaInstalled = "Java 설치 완료!"
 
 [js.landing.dlAsync]
+loginRequiredTitle = "로그인이 필요합니다"
+loginRequiredText = "플레이하려면 마인크래프트 계정으로 로그인해야 합니다. 설정 > 계정에서 계정을 추가하세요."
 loadingServerInfo = "서버 정보를 불러오는 중.."
 fatalError = "치명적 오류"
 unableToLoadDistributionIndex = "배포 목록을 불러오지 못했습니다. 자세한 내용은 콘솔(CTRL + Shift + i)을 확인하세요."
