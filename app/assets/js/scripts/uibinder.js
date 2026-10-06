@@ -57,6 +57,16 @@ function getCurrentView(){
     return currentView
 }
 
+/**
+ * The saved selection can be missing or point at a server that is no longer
+ * in the distribution. Fall back to the main server instead of showing none.
+ *
+ * @param {Object} data The distro index object.
+ */
+function resolveSelectedServer(data){
+    return data.getServerById(ConfigManager.getSelectedServer()) ?? data.getMainServer()
+}
+
 async function showMainUI(data){
 
     if(!isDev){
@@ -65,7 +75,7 @@ async function showMainUI(data){
     }
 
     await prepareSettings(true)
-    updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
+    updateSelectedServer(resolveSelectedServer(data))
     refreshServerStatus()
     setTimeout(() => {
         document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
@@ -133,7 +143,7 @@ function showFatalStartupError(){
  * @param {Object} data The distro index object.
  */
 function onDistroRefresh(data){
-    updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
+    updateSelectedServer(resolveSelectedServer(data))
     refreshServerStatus()
     initNews()
     syncModConfigurations(data)
