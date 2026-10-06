@@ -1,8 +1,7 @@
-// NOTE FOR THIRD-PARTY
-// REPLACE THIS CLIENT ID WITH YOUR APPLICATION ID.
+// 퐁허브용 Azure 앱 등록의 '애플리케이션(클라이언트) ID'.
+// Mojang 의 마인크래프트 API 사용 승인을 받은 앱이어야 로그인이 됩니다.
 // SEE https://github.com/dscalzi/HeliosLauncher/blob/master/docs/MicrosoftAuth.md
-exports.AZURE_CLIENT_ID = '1ce6e35a-126f-48fd-97fb-54d143ac6d45'
-// SEE NOTE ABOVE.
+exports.AZURE_CLIENT_ID = 'REPLACE_WITH_AZURE_CLIENT_ID'
 
 
 // Opcodes

@@ -1,8 +1,8 @@
-appId: 'helioslauncher'
-productName: 'Helios Launcher'
+appId: 'kr.pongchi.ponghub'
+productName: 'PongHub'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2026 Daniel Scalzi'
+copyright: 'Copyright © 2018-2026 Daniel Scalzi (Helios Launcher), Pongchi'
 
 asar: true
 compression: 'maximum'
@@ -49,3 +49,9 @@ linux:
 directories:
   buildResources: 'build'
   output: 'dist'
+# 태그 빌드가 곧바로 공개 릴리스로 올라가야 런처 자동 업데이트가 인식함
+publish:
+  provider: 'github'
+  owner: 'Pongchi'
+  repo: 'ponghub'
+  releaseType: 'release'

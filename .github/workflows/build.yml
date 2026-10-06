@@ -1,17 +1,17 @@
 name: Build
 
-on: push
+# 태그(v1.2.3)를 올리면 Windows 설치 파일을 빌드해서 GitHub 릴리스(초안)에 올립니다.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
 
 jobs:
   release:
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
 
     permissions:
       contents: write
-
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -22,11 +22,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: 3.x
-
       - name: Install Dependencies
         run: npm ci
         shell: bash
@@ -34,5 +29,11 @@ jobs:
       - name: Build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run dist
+        run: npm run dist:win
         shell: bash
+
+      - name: Upload installer as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PongHub-windows
+          path: dist/*.exe

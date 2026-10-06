@@ -1,13 +1,13 @@
 {
-  "name": "helioslauncher",
-  "version": "2.2.1",
-  "productName": "Helios Launcher",
-  "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/dscalzi/HeliosLauncher",
+  "name": "ponghub",
+  "version": "0.1.0",
+  "productName": "PongHub",
+  "description": "퐁허브 - pongchi.kr 마인크래프트 서버 런처",
+  "author": "Pongchi (https://github.com/Pongchi/)",
+  "license": "MIT",
+  "homepage": "https://github.com/Pongchi/ponghub",
   "bugs": {
-    "url": "https://github.com/dscalzi/HeliosLauncher/issues"
+    "url": "https://github.com/Pongchi/ponghub/issues"
   },
   "private": true,
   "main": "index.js",
@@ -47,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
+    "url": "git+https://github.com/Pongchi/ponghub.git"
   }
 }

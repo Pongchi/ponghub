@@ -1,20 +1,20 @@
 # Custom Language File for Launcher Customizer
 
 [ejs.app]
-title = "Helios Launcher"
+title = "퐁허브"
 
 [ejs.landing]
-mediaGitHubURL = "https://github.com/dscalzi/HeliosLauncher"
+mediaGitHubURL = "https://github.com/Pongchi/ponghub"
 mediaXURL = "#"
 mediaInstagramURL = "#"
 mediaYouTubeURL = "#"
-mediaDiscordURL = "https://discord.gg/zNWUXdt"
+mediaDiscordURL = "#"
 
 [ejs.settings]
-sourceGithubLink = "https://github.com/dscalZi/HeliosLauncher"
-supportLink = "https://github.com/dscalZi/HeliosLauncher/issues"
+sourceGithubLink = "https://github.com/Pongchi/ponghub"
+supportLink = "https://github.com/Pongchi/ponghub/issues"
 
 [ejs.welcome]
-welcomeHeader = "WELCOME TO WESTEROSCRAFT"
-welcomeDescription = "Our mission is to recreate the universe imagined by author George RR Martin in his fantasy series, A Song of Ice and Fire.  Through the collaborative effort of thousands of community members, we have sought to create Westeros as accurately and precisely as possible within Minecraft.  The world we are creating is yours to explore.  Journey from Dorne to Castle Black, and if you aren’t afraid, beyond the Wall itself, but best not delay.  As the words of House Stark ominously warn: Winter is Coming."
-welcomeDescCTA = "You are just a few clicks away from Westeros."
+welcomeHeader = "퐁허브에 오신 것을 환영합니다"
+welcomeDescription = "pongchi.kr 마인크래프트 서버 전용 런처입니다. 모드, 한글패치, 설정을 자동으로 받아서 맞춰 주고, 업데이트가 있으면 실행할 때마다 알아서 적용합니다."
+welcomeDescCTA = "로그인만 하면 바로 접속할 수 있습니다."

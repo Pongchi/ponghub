@@ -42,10 +42,37 @@ class ProcessBuilder {
     }
     
     /**
+     * PongHub: mods are distributed as File modules placed directly in the instance's
+     * mods folder. Forge loads every jar in that folder, so a jar that was removed from
+     * (or renamed in) the distribution would linger and clash with its replacement.
+     * Delete top-level mod jars the distribution no longer lists.
+     */
+    pruneUnmanagedMods(){
+        const modsDir = path.join(this.gameDir, 'mods')
+        const managed = new Set()
+        for(const mdl of this.server.modules){
+            if(mdl.rawModule.type === Type.File && path.dirname(mdl.getPath()) === modsDir){
+                managed.add(path.basename(mdl.getPath()))
+            }
+        }
+        // Distribution does not use the mods folder this way, leave it alone.
+        if(managed.size === 0 || !fs.existsSync(modsDir)){
+            return
+        }
+        for(const file of fs.readdirSync(modsDir)){
+            if(file.toLowerCase().endsWith('.jar') && !managed.has(file)){
+                logger.info('Removing mod not in distribution:', file)
+                fs.removeSync(path.join(modsDir, file))
+            }
+        }
+    }
+
+    /**
      * Convienence method to run the functions typically used to build a process.
      */
     build(){
         fs.ensureDirSync(this.gameDir)
+        this.pruneUnmanagedMods()
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
         this.setupLiteLoader()
@@ -372,7 +399,7 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=PongHub')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
@@ -423,7 +450,7 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=PongHub')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
